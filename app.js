@@ -2,6 +2,7 @@
 const express = require('express');
 const http = require('http');
 const helmet = require('helmet');
+const cors = require('cors');
 var compression = require('compression');
 require('dotenv').config();
 const {v4: uuidv4} = require('uuid');
@@ -9,6 +10,7 @@ const {v4: uuidv4} = require('uuid');
 const app = express();
 app.use(helmet({contentSecurityPolicy: false}));  // Ayuda a proteger aplicaciones Express
 app.use(compression());
+app.use(cors());
 
 // Servidor HTTP
 const serverHttp = http.createServer(app);
