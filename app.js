@@ -21,6 +21,10 @@ app.get('/api/get-uuid', function(req, res) {
   res.send(uuidv4());
 });
 
+app.get('/tmp', function(req, res) {
+  throw new Error('Error en el servidor');
+});
+
 app.get('*', function(req, res) {
   res.status(404).send('404 Not Found');
 });
